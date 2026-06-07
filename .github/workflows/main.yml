@@ -27,3 +27,9 @@ jobs:
 
       - name: Build the app using npm
         run: npm run build
+      - name: upload the artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: uploading artifact 
+          path: /home/runner/work/nodejs-repo/nodejs-repo/dist/index.html 
+
