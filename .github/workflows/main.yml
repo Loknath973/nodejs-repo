@@ -1,0 +1,29 @@
+name: nodejs demo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  buildjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js on runner
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies using npm
+        run: npm install
+
+      - name: Run tests using npm
+        run: npm test
+
+      - name: Build the app using npm
+        run: npm run build
